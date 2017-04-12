@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/Users/vn049dv/Desktop/uno/uno-webapp/client/sams-club/components/order-line-alterations/selectors'
+let g:netrw_dirhist_2='/Users/vn049dv/Desktop/uno/uno-webapp'
+let g:netrw_dirhist_3='/Users/vn049dv'
