@@ -6,6 +6,7 @@ syntax enable
 color desert
 
 set mouse=a                       " enable mouse
+set wildmenu                      " enable wildmenu
 set tags=./tags,tags;$HOME        " search for ctags
 set timeoutlen=1000 ttimeoutlen=0 " remove insert -> normal mode lag
 set cursorline                    " highlight current line
@@ -19,6 +20,8 @@ set expandtab                     " expand tabs to spaces
 set clipboard=unnamed             " enable system clipboard
 set laststatus=2                  " last window always has status line
 set t_Co=256                      " enable 256 color mode
+set noswapfile                    " do not create .swp files
+let g:netrw_dirhistmax = 0        " do not create netrwhist file
 
 " cursor highlighting
 hi MatchParen cterm=bold ctermbg=darkgreen ctermfg=white
