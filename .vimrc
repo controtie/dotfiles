@@ -6,6 +6,8 @@ syntax enable
 color desert
 
 set mouse=a                       " enable mouse
+set foldmethod=indent             " enable folding by default
+set foldlevelstart=20             " begin all windows with foldlevel=20
 set wildmenu                      " enable wildmenu
 set tags=./tags,tags;$HOME        " search for ctags
 set timeoutlen=1000 ttimeoutlen=0 " remove insert -> normal mode lag
