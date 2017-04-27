@@ -16,3 +16,6 @@
 [submodule ".vim/bundle/vim-web-indent"]
 	path = .vim/bundle/vim-web-indent
 	url = https://github.com/lukaszb/vim-web-indent.git
+[submodule ".vim/bundle/cmdline-completion"]
+	path = .vim/bundle/cmdline-completion
+	url = https://github.com/vim-scripts/cmdline-completion.git
