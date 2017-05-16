@@ -58,11 +58,11 @@ noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
 
-" Smart way to move between windows
-map <C-j> <C-W>j
-map <C-k> <C-W>k
-map <C-h> <C-W>h
-map <C-l> <C-W>l
+" add vim-BufSurf bindings
+nnoremap <C-J> :BufSurfBack <CR>
+nnoremap <C-k> :BufSurfForward <CR>
+autocmd FileType nerdtree noremap <buffer> <C-j> :BufSurfBack <CR>
+autocmd FileType nerdtree noremap <buffer> <C-k> :BufSurfForward <CR>
 
 au InsertEnter * hi Normal guibg=#000000
 au InsertLeave * hi Normal guibg=#1b1d1e
