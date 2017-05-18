@@ -67,9 +67,16 @@ autocmd FileType nerdtree noremap <buffer> <C-k> :BufSurfForward <CR>
 au InsertEnter * hi Normal guibg=#000000
 au InsertLeave * hi Normal guibg=#1b1d1e
 
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+" CtrlP
+set runtimepath^=~/.vim/bundle/ctrlp.vim
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_working_path_mode = 'ra'        " set root searching directory according to root markers
+let g:ctrlp_root_markers = ['package.json'] " look for package.json as marker for root directory
+let g:ctrlp_switch_buffer = 'et'            " if file is already open, open in new pane
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  'node_modules',
+  \ }
 
 " Syntastic config
 let g:syntastic_always_populate_loc_list = 1
