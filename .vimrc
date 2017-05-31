@@ -25,6 +25,12 @@ set t_Co=256                      " enable 256 color mode
 set noswapfile                    " do not create .swp files
 let g:netrw_dirhistmax = 0        " do not create netrwhist file
 
+" error-friendly writing, quitting
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
 " cursor highlighting
 hi MatchParen cterm=bold ctermbg=darkgreen ctermfg=white
 hi Cursor guifg=white guibg=black
