@@ -54,16 +54,6 @@ nnoremap <D-4> 4gt
 nnoremap <D-5> 5gt
 nnoremap <D-6> 6gt
 
-" disable arrow keys in insert and normal modes
-inoremap  <Up>     <NOP>
-inoremap  <Down>   <NOP>
-inoremap  <Left>   <NOP>
-inoremap  <Right>  <NOP>
-noremap   <Up>     <NOP>
-noremap   <Down>   <NOP>
-noremap   <Left>   <NOP>
-noremap   <Right>  <NOP>
-
 " add vim-BufSurf bindings
 nnoremap <C-J> :BufSurfBack <CR>
 nnoremap <C-k> :BufSurfForward <CR>
@@ -72,6 +62,9 @@ autocmd FileType nerdtree noremap <buffer> <C-k> :BufSurfForward <CR>
 
 au InsertEnter * hi Normal guibg=#000000
 au InsertLeave * hi Normal guibg=#1b1d1e
+
+" select last pasted line in visual mode
+nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
