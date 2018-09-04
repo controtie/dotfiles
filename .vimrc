@@ -6,7 +6,7 @@ syntax enable
 color desert
 
 set mouse=a                       " enable mouse
-set foldmethod=indent             " enable folding by default
+set foldmethod=manual             " enable manual folding selected lines
 set foldlevelstart=20             " begin all windows with foldlevel=20
 set wildmenu                      " enable wildmenu
 set tags=./tags,tags;$HOME        " search for ctags
@@ -35,6 +35,9 @@ let g:netrw_dirhistmax = 0        " do not create netrwhist file
 hi MatchParen cterm=bold ctermbg=darkgreen ctermfg=white
 hi Cursor guifg=white guibg=black
 hi iCursor guifg=white guibg=steelblue
+
+" Allow backspaces?
+set backspace=indent,eol,start
 
 " increase vertical movement
 nnoremap <C-e>  5<C-e>
@@ -65,6 +68,9 @@ au InsertLeave * hi Normal guibg=#1b1d1e
 
 " select last pasted line in visual mode
 nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+" refresh current file with any new changes
+nnoremap <C-n> :edit! <CR>
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
