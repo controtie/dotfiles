@@ -5,6 +5,12 @@ filetype plugin indent on
 syntax enable
 color desert
 
+" Allow us to use Ctrl-s and Ctrl-q as keybinds
+silent !stty -ixon
+
+" Restore default behaviour when leaving Vim.
+autocmd VimLeave * silent !stty ixon
+
 set mouse=a                       " enable mouse
 set foldmethod=manual             " enable manual folding selected lines
 set foldlevelstart=20             " begin all windows with foldlevel=20
@@ -25,14 +31,14 @@ set t_Co=256                      " enable 256 color mode
 set noswapfile                    " do not create .swp files
 let g:netrw_dirhistmax = 0        " do not create netrwhist file
 
-" error-friendly writing, quitting
+" error-friendly/lazy writing, quitting
 :command WQ wq
 :command Wq wq
 :command W w
 :command Q q
 
 " cursor highlighting
-hi MatchParen cterm=bold ctermbg=darkgreen ctermfg=white
+hi MatchParen cterm=bold ctermbg=yellow ctermfg=white
 hi Cursor guifg=white guibg=black
 hi iCursor guifg=white guibg=steelblue
 
@@ -42,20 +48,6 @@ set backspace=indent,eol,start
 " increase vertical movement
 nnoremap <C-e>  5<C-e>
 nnoremap <C-y>  5<C-y>
-
-" tab control
-nnoremap <C-S-tab> :tabprevious<CR>
-nnoremap <C-tab>   :tabnext<CR>
-nnoremap <C-t>     :tabnew<CR>
-inoremap <C-S-tab> <Esc>:tabprevious<CR>i
-inoremap <C-tab>   <Esc>:tabnext<CR>i
-inoremap <C-t>     <Esc>:tabnew<CR>
-nnoremap <D-1> 1gt
-nnoremap <D-2> 2gt
-nnoremap <D-3> 3gt
-nnoremap <D-4> 4gt
-nnoremap <D-5> 5gt
-nnoremap <D-6> 6gt
 
 " add vim-BufSurf bindings
 nnoremap <C-J> :BufSurfBack <CR>
@@ -71,6 +63,9 @@ nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 " refresh current file with any new changes
 nnoremap <C-n> :edit! <CR>
+
+" refresh current file with any new changes
+nnoremap <C-S> :SyntasticToggleMode <CR>
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
