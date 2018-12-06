@@ -7,13 +7,11 @@ color desert
 
 " Allow us to use Ctrl-s and Ctrl-q as keybinds
 silent !stty -ixon
-
 " Restore default behaviour when leaving Vim.
 autocmd VimLeave * silent !stty ixon
 
 set mouse=a                       " enable mouse
 set foldmethod=manual             " enable manual folding selected lines
-set foldlevelstart=20             " begin all windows with foldlevel=20
 set wildmenu                      " enable wildmenu
 set tags=./tags,tags;$HOME        " search for ctags
 set timeoutlen=1000 ttimeoutlen=0 " remove insert -> normal mode lag
@@ -64,8 +62,19 @@ nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 " refresh current file with any new changes
 nnoremap <C-n> :edit! <CR>
 
-" refresh current file with any new changes
-nnoremap <C-S> :SyntasticToggleMode <CR>
+" Syntastic Check
+nnoremap <C-S> :SyntasticCheck <CR>
+
+" Relative Line Numbers
+:set number relativenumber
+:augroup numbertoggle
+:  autocmd!
+:  autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+:  autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+:augroup END
+
+" Open images in vim
+:autocmd BufEnter *.png,*.jpg,*gif exec "! ~/.iterm2/imgcat ".expand("%") | :bw
 
 " CtrlP
 set runtimepath^=~/.vim/bundle/ctrlp.vim
@@ -83,9 +92,10 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_loc_list_height = 5
 let g:syntastic_auto_loc_list = 0
 let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 1
+let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_enable_signs = 1
+let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': [],'passive_filetypes': [] }
 
 let g:syntastic_error_symbol = '❌'
 let g:syntastic_style_error_symbol = '⁉️'
